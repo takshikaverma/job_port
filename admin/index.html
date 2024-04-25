@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="\job_portal_app\css\style.css" rel="stylesheet" />
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm sticky-top" style="border-bottom: 1px solid gainsboro;">
+    <div class="container d-flex">
+
+      <a class="navbar-brand " href="#">
+        <img src="/job_portal_app/images/logo.png" alt="Avatar Logo" style="width:80px; padding-left: 30px;">
+      </a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="admin/index.html">Admin Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">User Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!---input-->
+  <section id="banner">
+    <div class="container login-box">
+      <div class=" p-3">
+        <form method="post" name="frm" onsubmit="login(event)">
+          <h4 class="text-center">Login Form</h4>
+
+          <div class="form-group mt-4 text-data">
+            <!-- <label class="ml-auto">email:</label> -->
+            <input type="email" class="form-control " name="nm" id="unm" placeholder="enter email" />
+          </div>
+          <div class="form-group mt-4">
+            <!-- <label>password:</label> -->
+            <input type="password " class="form-control" name="pwd" id="upd" placeholder="enter password" />
+          </div>
+          <div class="form-group text-center">
+            <button class=" mt-4 btn btn-success ">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!----footer section-->
+  <footer>
+    <div class="container">
+      <div class="foot" style="border-bottom: 1px solid cadetblue; ">
+        <div class="foot-first" style="width: 25%; color: azure; padding: 40px; margin-left: 40px; ">
+          <img src="/job_portal_app//images/logo.png" alt="loading..." style="color: azure;" />
+          <p style="padding-top: 40px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis quisquam,
+            reprehenderit laudantium ab at nobis qui minus iste? Esse sit dicta incidunt numquam quisquam rerum
+            accusantium quaerat. Distinctio, atque</p>
+          <div style="display: flex; ">
+            <i class="fa fa-youtube-play" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-facebook" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-instagram" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-twitter" aria-hidden="true" style="padding: 5px;"></i>
+          </div>
+        </div>
+
+
+        <div class="link-foot">
+          <h4 style="padding-left: 40px; font-size: 25px;">category</h4>
+          <ul>
+            <li>Developement</li>
+            <li>Business</li>
+            <li>Teach and IT</li>
+            <li>Networking</li>
+          </ul>
+        </div>
+
+        <div class="link-foot" style="padding-left: 90px;">
+          <h4 style="padding-left: 40px; font-size: 25px;">Quick links</h4>
+          <ul>
+            <li>Home</li>
+            <li>About us</li>
+            <li>Companies</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+
+        <div class="link-foot" style="padding-left: 90px;">
+          <h4 style="padding-left: 40px; font-size: 25px;">Find Us</h4>
+          <ul>
+            <li><i class="fa fa-map-marker" aria-hidden="true"></i> 28/A Street, New York City</li>
+            <li> <i class="fa fa-phone" aria-hidden="true"></i> +88 0123 456 789</li>
+            <li> <b>@</b>hello@gable.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="color: azure; padding-left: 60px; padding-top: 20px;"><a>Copyright © 2023 Gable. Designed By
+          Takshika Verma</a></div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="\js\script.js"></script>
+  <script>
+    window.addEventListener('scroll', function () {
+      let navbar = document.querySelector('nav');
+      if (pageYOffset > 0) {
+        navbar.classList.add('sticky');
+      }
+      else {
+        navbar.classList.remove('sticky');
+      }
+    });
+    function login(e) {
+      e.preventDefault()
+      let email = document.getElementById("unm").value;
+      let password = document.getElementById("upd").value;
+
+      let data = localStorage.getItem("job-admin-login");
+      if (data != null) {
+        arr = JSON.parse(data);
+      }
+      else {
+        arr = [];
+      }
+      //email: job@gmail.com
+      //password: job123
+      let newarr = arr.filter((items, index) => {
+        return items.email == email && items.password == password;
+      });
+      console.log(newarr);
+      if (newarr.length > 0) {
+        alert("login successfully");
+        window.location = 'AdminDashboard.html'
+      }
+      else {
+        alert("invalid login")
+      }
+      frm.reset();
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="\job_portal_app\css\style.css" rel="stylesheet" />
+</head>
+<body>
+      <!---input-->
+  <section id="banner">
+    <div class="container login-box mb-5">
+      <div class=" p-3">
+        <form method="post" name="frm" onsubmit="userlogin(event)">
+          <h4 class="text-center">Userlogin Form</h4>
+          
+          <div class="form-group mt-4 text-data">
+            <!-- <label class="ml-auto">email:</label> -->
+            <input type="email" class="form-control " name="uid" id="uid" placeholder="enter email" />
+          </div>
+          <div class="form-group mt-4">
+            <!-- <label>password:</label> -->
+            <input type="password " class="form-control" name="upwd" id="upwd" placeholder="enter password" />
+          </div>
+          <div class="form-group   text-center">
+            <button class=" mt-4 btn btn-success ">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+   <!-- Latest compiled JavaScript -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+     function userlogin(e) {
+      e.preventDefault()
+      let email = document.getElementById("uid").value;
+      let password = document.getElementById("upwd").value;
+
+      let data = localStorage.getItem("job-user-Signup");
+      if (data != null) {
+        arr = JSON.parse(data);
+      }
+      else {
+        arr = [];
+      }
+
+      let newarr = arr.filter((items, index) => {
+        return items.email == email && items.password == password;
+      });
+      console.log(newarr);
+      if (newarr.length > 0) {
+        alert("login successfully");
+      }
+      else {
+        alert("invalid login");
+      }
+      frm.reset();
+    }
+   </script>
+</body>
+</html>

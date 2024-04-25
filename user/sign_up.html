@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="\job_portal_app\css\style.css" rel="stylesheet" />
+</head>
+<body>
+     <!---input-->
+  <section id="banner">
+    <div class="container login-box mb-5">
+      <div class=" p-3">
+        <form method="post" name="frm" onsubmit="Signup(event)">
+          <h4 class="text-center">Sign_up Form</h4>
+          <div class="form-group mt-4 text-data">
+            <!-- <label class="ml-auto">email:</label> -->
+            <input type="text" class="form-control " name="nm" id="unm" placeholder="enter name" />
+          </div>
+          <div class="form-group mt-4 text-data">
+            <!-- <label class="ml-auto">email:</label> -->
+            <input type="email" class="form-control " name="eid" id="eid" placeholder="enter email" />
+          </div>
+          <div class="form-group mt-4">
+            <!-- <label>password:</label> -->
+            <input type="password " class="form-control" name="pwd" id="upd" placeholder="enter password" />
+          </div>
+          <div class="form-group   text-center">
+            <button class=" mt-4 btn btn-success ">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function Signup(e) {
+  // console.log("first");
+    e.preventDefault()
+    let name = document.getElementById("unm").value;
+    let email = document.getElementById("eid").value;
+    let password = document.getElementById("upd").value;
+    let data = localStorage.getItem("job-user-Signup");
+    if (data != null) {
+      arr = JSON.parse(data);
+    }
+    else {
+      arr = [];
+    }
+   
+    let newar = arr.filter((items, index) => {
+      return email == items.email
+    });
+   console.log(newar)
+    if (newar.length > 0) {
+      alert("invalid signup")
+     
+    }
+    else {
+        arr.push({"name":name,"email":email,"password":password});
+        // window.location = 'UserLogin.html';
+        
+        window.location = '../index.html';
+        
+    }
+    localStorage.setItem('job-user-Signup', JSON.stringify(arr));
+    frm.reset();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal</title>
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css\style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm sticky-top" style="border-bottom: 1px solid gainsboro;">
+    <div class="container d-flex">
+
+      <a class="navbar-brand " href="#">
+        <img src="images\logo.png" alt="Avatar Logo" style="width:80px; padding-left: 30px;">
+      </a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="#">jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="admin/index.html">Admin Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="user/UserLogin.html">User Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-4" href="/job_portal_app//user/sign_up.html">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!---banner section-->
+  <section id="banner">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="col-sm-6">
+        <div class="banner-data">
+          <h1>Search Here For <span>Better </span>Job</h1>
+          <p>Jobs, Employment & Future Career Opportunities</p>
+        </div>
+        <form class="search-box d-flex justify-content-center align-items-center">
+          <input type="text" class="form-control search-input" placeholder="Job Title">
+          <a href="#" class="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></a>
+          <button class="btn btn-primary search-btn" type="button">Search</button>
+        </form>
+      </div>
+      <div class="col-sm-6 d-flex justify-content-center banner-image">
+        <img src="images/banner.png" alt="">
+      </div>
+    </div>
+  </section>
+  <!----category-->
+  <section>
+    <div class="container">
+      <div class="content-text">
+        <h2 class="text-center">Choose Your Desire Category</h2>
+        <div class="Category">
+          <div class="Category-box">
+            <div class="Category-icons">
+              <i class="fa fa-cog " aria-hidden="true" style="color: rgb(156, 20, 20);"></i>
+            </div>
+            <span onclick="set_job(this)"> <h3>Technical support</h3></span>
+          </div>
+
+          <div class="Category-box">
+            <div class="Category-icons">
+             <i class="fa fa-snowflake-o" aria-hidden="true"
+                style="background-color: rgb(122, 225, 238); color: blue;"></i>
+            </div>
+            <span onclick="set_job(this)"><h3>it and networking services </h3></span>
+          </div>
+
+          <div class="Category-box">
+            <div class="Category-icons">
+              <i class="fa fa-graduation-cap" aria-hidden="true"
+                style="background-color: blueviolet; color: violet;"></i>
+            </div>
+            <span onclick="set_job(this)"> <h3>bussiness development</h3></span>
+          </div>
+
+          <div class="Category-box">
+            <div class="Category-icons">
+              <i class="fa fa-home" aria-hidden="true" style="background-color: #20c997; color:#13654c;"></i>
+            </div>
+            <span onclick="set_job(this)"><h3>finance & banking service</h3></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--browse job----->
+  <section>
+    <div class="container">
+      <div class="job-part">
+        <h4 class="text-center"> Browse Jobs</h4>
+        <div class="job-card " style="padding-top: 70px;" id="box-contain">
+        </div>
+        </div>
+      </div>
+  </section>
+
+  <!----footer section-->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div class="foot-first" style="width: 25%; color: azure; padding: 40px; margin-left: 40px; ">
+          <img src="images/logo.png" alt="loading..." style="color: azure;" />
+          <p style="padding-top: 40px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis quisquam,
+            reprehenderit laudantium ab at nobis qui minus iste? Esse sit dicta incidunt numquam quisquam rerum
+            accusantium quaerat. Distinctio, atque</p>
+          <div style="display: flex; ">
+            <i class="fa fa-youtube-play" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-facebook" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-instagram" aria-hidden="true" style="padding: 5px;"></i>
+            <i class="fa fa-twitter" aria-hidden="true" style="padding: 5px;"></i>
+          </div>
+        </div>
+
+
+        <div class="link-foot">
+          <h4 style="padding-left: 40px; font-size: 25px;">category</h4>
+          <ul>
+            <li>Developement</li>
+            <li>Business</li>
+            <li>Teach and IT</li>
+            <li>Networking</li>
+          </ul>
+        </div>
+
+        <div class="link-foot" style="padding-left: 90px;">
+          <h4 style="padding-left: 40px; font-size: 25px;">Quick links</h4>
+          <ul>
+            <li>Home</li>
+            <li>About us</li>
+            <li>Companies</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+
+        <div class="link-foot" style="padding-left: 90px;">
+          <h4 style="padding-left: 40px; font-size: 25px;">Find Us</h4>
+          <ul>
+            <li><i class="fa fa-map-marker" aria-hidden="true"></i> 28/A Street, New York City</li>
+            <li> <i class="fa fa-phone" aria-hidden="true"></i> +88 0123 456 789</li>
+            <li> <b>@</b>hello@gable.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="color: azure; padding-left: 60px; padding-top: 20px; border-top:1px solid cadetblue !important;;"><a>Copyright © 2023 Gable. Designed By
+          Takshika Verma</a></div>
+    </div>
+  </footer>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener('scroll', function () {
+      let navbar = document.querySelector('nav');
+      if (pageYOffset > 0) {
+        navbar.classList.add('sticky');
+      }
+      else {
+        navbar.classList.remove('sticky');
+      }
+    });
+    //get data
+    //function to display project data in the form of card
+    function cardbody() {
+
+    }
+    function cardData() {
+      let data = localStorage.getItem('job-data');
+      if (data == null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(data)
+      }
+      let card = "";
+      arr.forEach((items, index) => {
+        card += `
+          <div class="job-box d-flex mt-4" style="padding-top: 20px;">
+            <img src="images/2jobs.png" alt="loading..." />
+            <div class="job-content d-flex flex-direction-row">
+              <div>
+                <h4>${items.jobtitle}</h4>
+                <h6 style="color: rgb(13, 152, 13);">Infiniza.com</h6>
+                <h6>${items.salary}</h6>
+                <p>${items.address}</p>
+              </div>
+              <div class="">
+                <button class="text-btn ml-2 p-2" style="background-color:#fff; border: 1px solid #0a4f3b; margin-left:20px">Apply</button><br>
+                <button class=" mt-2 p-2" style="background-color:green; color: #fff; margin-left:20px">Full Time</button>
+              </div>
+            </div>
+          </div>`
+      })
+      document.getElementById('box-contain').innerHTML=card;
+    }
+    cardData();
+    //card
+    function set_job(t){
+       let cardName=t.innerText;
+       let data = localStorage.getItem('job-data');
+      if (data == null) {
+        arr = [];
+      } else {
+        arr = JSON.parse(data)
+      }
+     let newarr= arr.filter((items,index)=>{
+        return cardName == items.category;
+      })
+      localStorage.setItem('category_name',JSON.stringify(newarr))
+      window.location="category.html"
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job</title>
+    <link href="\job_portal_app\css\style.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    #updateJob{
+        display: none;
+    }
+</style>
+<body>
+    <section id="banner">
+        <div class="container-fuild">
+            <div class="row">
+                <div class="col-sm-3 " style="background-color: #fff;">
+                    <img src="\job_portal_app\images\logo.png " class="mt-3 pr-4" alt="logo img.." />
+                    <div class="d-flex mt-5">
+                        <img src="\job_portal_app\images\admin-side.jpg" alt="admin image.." class="dash-img " />
+                        <div class='dash-head '>
+                            <h5 class="mt-3"> admin_user_name</h5>
+                            <h6>job@gmail.com</h6>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="icon-dash mt-4 ">
+                        <ul>
+                            <li>
+                                <a href=""><i class="fa fa-th-large" aria-hidden="true"></i>
+                                    Dashboard </a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-search" aria-hidden="true"></i>
+                                    job </a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-th-large" aria-hidden="true"></i>
+                                    Admin Login </a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-th-large" aria-hidden="true"></i>
+                                    Home </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-9 dash-first" style=>
+                    <div class=" d-flex dash-side">
+                        <i class="fa fa-arrow-left mt-2" aria-hidden="true"></i>
+                        <h5 class="mr-5">Dashboard</h5>
+                        <div class="mx-auto">
+                            <button class=" btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#myModal">PostNewJob</button>
+                        </div>
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">PostNewJob</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form action="" name="frm" onsubmit="getjobData(event)">
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="nm">Job Id</label>
+                                            <input type="text" id="nm" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="til">Job Title</label>
+                                            <input type="text" id="til" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="cat">job Category</label>
+                                            <!-- <input type="text" id="cat" class="form-control"> -->
+                                            <select class="form-select mt-1" aria-label="Default select example" id="cat" name="jobcategory">
+                                                <option selected> select job category</option>
+                                                <option value="Technical support">Technical support</option>
+                                                <option value="bussiness development">bussiness development</option>
+                                                <option value="it and networking services">it and networking services</option>
+                                                <option value="finance & banking service">finance & banking service</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="des">Description</label>
+                                            <input type="text" id="des" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="sal">Salary</label>
+                                            <input type="text" id="sal" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="cnam">Company Name</label>
+                                            <input type="text" id="cnam" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="ceml">Company Email</label>
+                                            <input type="text" id="ceml" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="url">Company Url</label>
+                                            <input type="text" id="url" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <label for="address">Address</label>
+                                            <input type="text" id="add" class="form-control">
+                                        </div>
+                                        <div class="form-group mb-2 mt-2">
+                                            <input type="submit" value="PostNewJob" class="btn btn-info" id="addJob">
+                                        </div>
+                                    </form>
+                                    <div class="form-group mb-2 mt-2">
+                                        <input type="submit" value="update" onclick="updatedata()" class="btn btn-info" id="updateJob">
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer mt-5">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!---table section-->
+                    <div class="row p-4 ">
+                        <div class="mt-4">
+                            <table class="table table-bordered p-5">
+                                <thead>
+                                    <tr>
+                                        <th>Job Title</th>
+                                        <th>Company Name</th>
+                                        <th>Job Category</th>
+                                        <th>Salary</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="result">
+                                    <tr>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- // The Modal -->
+                    <div class="modal" id="my_Modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">job-views <span id="jid"></span></h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="mt-2">
+                                        <strong>job title:</strong><span id="jobid"></span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <strong>company name:</strong><span id="company_name"></span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <strong>job category:</strong><span id="category"></span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <strong>salary:</strong><span id="salary"></span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <strong>status:</strong><span id="company_status"></span>
+                                    </div>
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
+<script>
+    function getjobData(e) {
+        e.preventDefault()
+       
+        console.log("function called");
+        let jobid = document.getElementById("nm").value;
+        let jobtitle = document.getElementById("til").value;
+        let category = document.getElementById("cat").value;
+        let description = document.getElementById("des").value;
+        let salary = document.getElementById("sal").value;
+        let cname = document.getElementById("cnam").value;
+        let cemail = document.getElementById("ceml").value;
+        let address = document.getElementById("add").value;
+        console.log("jobid")
+        let data = localStorage.getItem("job-data");
+        if (data != null) {
+            arr = JSON.parse(data);
+        }
+        else {
+            arr = [];
+        }
+        arr.push({ "jobid": jobid, "jobtitle": jobtitle, "category": category, "description": description, "salary": salary, "cname": cname, "cemail": cemail,"address":address, "status": "pending"});
+        localStorage.setItem('job-data', JSON.stringify(arr));
+        // console.log(arr)
+        frm.reset();
+        showData();
+    }
+
+    // show in the table
+    function showData() {
+
+        let data = localStorage.getItem("job-data");
+        if (data != null) {
+            arr = JSON.parse(data);
+        }
+        else {
+            arr = [];
+        }
+        let str = "";
+        arr.forEach((items, index) => {
+            str += `<tr><td>${items.jobtitle}</td><td>${items.cname}</td><td>${items.category}</td><td>${items.salary}</td><td>${items.status =="pending"?`<button class='btn btn-dark' onclick='status_change("pending",${index})'>active</button>`:`<button class='btn btn-dark' onclick='status_change("active",${index})'>Pending</button>`}</td><td><button onclick="viewData(${index})" class='btn btn-info' data-bs-toggle="modal" data-bs-target="#my_Modal">View</button>
+            <button onclick="editdata(${index})" data-bs-toggle="modal" data-bs-target="#myModal" class='btn btn-primary'>Edit</button>
+            <button onclick="deletedata(${index})" class='btn btn-danger'>Delete</button></td></tr>`
+        });
+        document.getElementById("result").innerHTML = str;
+        // console.log("result")
+    }
+    showData();
+
+    //for view data
+    function viewData(id) {
+        //console.log(id);
+        let data = localStorage.getItem('job-data');
+        if (data == null) {
+            arr = [];
+        } else {
+            arr = JSON.parse(data)
+        }
+        //console.log(arr);
+        let newArr = arr.filter((items, index) => {
+            return id == index;
+        })
+        console.log(newArr);
+        document.getElementById('jobid').innerHTML = newArr[0].jobtitle;
+        document.getElementById('company_name').innerHTML = newArr[0].cname;
+        document.getElementById('category').innerHTML = newArr[0].category;
+        document.getElementById('salary').innerHTML = newArr[0].salary;
+        document.getElementById('company_status').innerHTML = newArr[0].status;
+    }
+//change status
+function status_change(status,id){
+    console.log(status,id);
+    //localstorage
+    let data = localStorage.getItem('job-data');
+        if (data != null) {
+            arr = JSON.parse(data);
+        }
+        else {
+            arr=[];
+        }
+        if(status == "pending"){
+            arr[id].status='active';
+        }
+        else{
+            arr[id].status='pending';
+        }
+        localStorage.setItem("job-data",JSON.stringify(arr))
+        showData();
+}
+    //delete
+    function deletedata(id) {
+        let data = localStorage.getItem("job-data");
+        if (data != null) {
+            arr = JSON.parse(data);
+        }
+        else {
+            arr = [];
+        }
+        arr.splice(id, 1);
+        // return id != index;
+        localStorage.setItem('job-data', JSON.stringify(arr));
+        showData();
+    }
+    let sid = "";
+       function editdata(uid){
+        // console.log(uid);
+        document.getElementById('updateJob').style="display : block";
+        document.getElementById('addJob').style="display : none";
+        sid=uid;
+        let data = localStorage.getItem("job-data");
+            if (data != null) {
+                editarr = JSON.parse(data);
+            }
+            else {
+                arr = [];
+            }
+            let newarr=editarr.filter((items,index)=>{
+                return uid == index;
+            });
+            // console.log(newarr)
+            document.getElementById('nm').value=newarr[0].jobid;
+            document.getElementById("til").value=newarr[0].jobtitle;
+            document.getElementById("cat").value=newarr[0].category;
+            document.getElementById("des").value=newarr[0].description;
+            document.getElementById("sal").value=newarr[0].salary;
+            document.getElementById("cnam").value=newarr[0].cname;
+            document.getElementById("ceml").value=newarr[0].cemail;
+       }
+       function updatedata(){
+           let data = localStorage.getItem("job-data");
+            if (data != null) {
+                arr = JSON.parse(data);
+            }
+            else {
+                arr = [];
+            }
+            arr[sid].jobid = document.getElementById('nm').value;
+            arr[sid].jobtitle = document.getElementById("til").value;
+            arr[sid].category = document.getElementById("cat").value;
+            arr[sid].description = document.getElementById("des").value;
+            arr[sid].salary = document.getElementById("sal").value;
+            arr[sid].cname = document.getElementById("cnam").value;
+            arr[sid].cemail = document.getElementById("ceml").value;
+            localStorage.setItem('job-data',JSON.stringify(arr))
+            frm.reset();
+      showData();
+       }
+    //  
+</script>
+
+</html>
